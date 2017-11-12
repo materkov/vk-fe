@@ -13,6 +13,35 @@
     text-decoration: none;
 }
 
+.container-header .right-part {
+    font-size: 12px;
+    margin: 7px 0 0 0;
+    display: inline-block;
+    float: right;
+    color: #777;
+}
+
+.container-header .right-part p,
+.container-header .right-part a {
+    font-size: 12px;
+    margin: 0 0;
+    vertical-align: middle;
+    color: #888888;
+}
+
+.container-header .right-part a:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.container-header .right-name {
+    max-width: 200px;
+    display: inline-block;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
 .container-main {
     width: 800px;
     background: #eee;

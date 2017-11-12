@@ -1,10 +1,11 @@
 import {Injectable} from '@angular/core';
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Order} from "./order";
+import {AuthService} from "../auth/auth.service";
 
 @Injectable()
 export class OrderService {
-    constructor(private httpClient: HttpClient) {
+    constructor(private httpClient: HttpClient, private authService: AuthService) {
     }
 
     getOrdersList(after: string): Promise<[Order[], string]> {
@@ -27,6 +28,16 @@ export class OrderService {
             .toPromise()
             .then(result => {
                 return result as Order;
+            })
+    }
+
+    executeOrder(id: number) {
+        let url = "http://localhost:8000/orders/" + id + "/exec?XDEBUG_SESSION_START=1";
+        let headers = new HttpHeaders().set("Authorization", "Bearer " + this.authService.getToken());
+
+        return this.httpClient.post(url, null, {headers: headers}).toPromise()
+            .then(result => {
+
             })
     }
 }

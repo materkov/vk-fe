@@ -28,3 +28,12 @@ a:focus, a:hover {
 .btn:hover, .btn:focus {
     background: #1F7080;
 }
+
+.clearfix:before, .clearfix:after {
+    content: " ";
+    display: table;
+}
+
+.clearfix:after {
+    clear: both;
+}

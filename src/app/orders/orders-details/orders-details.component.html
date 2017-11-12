@@ -1,4 +1,4 @@
-<dl class="order-detail" >
+<dl class="order-detail" *ngIf="order">
     <dt>ID</dt>
     <dd>{{order.id}}</dd>
 
@@ -12,4 +12,4 @@
     <dd>{{order.description}}</dd>
 </dl>
 
-<input type="button" class="btn exec-btn" value="Выполнить заказ">
+<input type="button" class="btn exec-btn" value="Выполнить заказ" (click)="execute()">

@@ -19,4 +19,8 @@ export class OrdersDetailsComponent implements OnInit {
             this.orderService.getOrder(params['id']).then(order => this.order = order)
         });
     }
+
+    execute() {
+        this.orderService.executeOrder(this.order.id);
+    }
 }

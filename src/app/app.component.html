@@ -1,5 +1,13 @@
 <div class="container-header">
     <a routerLink="/">VK Orders</a>
+    <div class="right-part" *ngIf="authService.isAuthenticated()">
+        <p class="right-name">
+            {{ authService.getUserTypeHuman() }}: {{ authService.getName() }}
+        </p>
+        |
+        <a class="right-logout" (click)="logout()">Выход</a>
+    </div>
+    <div class="clearfix"></div>
 </div>
 <div class="container-main">
     <router-outlet></router-outlet>

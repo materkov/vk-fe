@@ -3,20 +3,18 @@ import {Routes, RouterModule} from '@angular/router';
 
 import {OrdersListComponent} from "./orders/orders-list/orders-list.component";
 import {OrdersDetailsComponent} from "./orders/orders-details/orders-details.component";
+import {AuthComponent} from "./auth/auth.component";
+import {AuthGuard} from "./auth/auth.guard";
 
 const routes: Routes = [
     {path: '', redirectTo: '/orders', pathMatch: 'full'},
-    {path: 'orders', component: OrdersListComponent},
-    {path: 'orders/:id', component: OrdersDetailsComponent},
 
-    //{path: '', canActivate: [AuthGuard], children: [
-    //    {path: 'news', component: NewsListComponent},
-    //    {path: 'news/:id', component: NewsEditComponent},
-    //    {path: 'banner_news', component: BannerNewsListComponent},
-    //    {path: 'banner_news/:id', component: BannerNewsEditComponent},
-    //]},
+    {path: '', canActivate: [AuthGuard], children: [
+        {path: 'orders', component: OrdersListComponent},
+        {path: 'orders/:id', component: OrdersDetailsComponent},
+    ]},
 
-    //{path: 'auth', component: AuthComponent},
+    {path: 'auth', component: AuthComponent},
 ];
 
 @NgModule({
