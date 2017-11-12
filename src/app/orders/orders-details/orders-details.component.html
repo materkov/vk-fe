@@ -1,0 +1,15 @@
+<dl class="order-detail" >
+    <dt>ID</dt>
+    <dd>{{order.id}}</dd>
+
+    <dt>Название</dt>
+    <dd>{{order.name}}</dd>
+
+    <dt>Цена</dt>
+    <dd>{{order.price | currency:'RUB'}}</dd>
+
+    <dt>Описание</dt>
+    <dd>{{order.description}}</dd>
+</dl>
+
+<input type="button" class="btn exec-btn" value="Выполнить заказ">

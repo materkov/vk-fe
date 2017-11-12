@@ -1,1 +1,30 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+    font-family: "Open Sans", sans-serif;
+    margin: 0;
+    color: #555459;
+}
+
+a {
+    color: #337ab7;
+    text-decoration: none;
+}
+
+a:focus, a:hover {
+    color: #337ab7;
+    text-decoration: underline;
+}
+
+.btn {
+    padding: 10px 20px 10px 20px;
+    border: 1px solid #1e6373;
+    border-radius: 3px;
+    cursor: pointer;
+    background: #1e6373;
+    color: #fff;
+    font-size: 16px;
+}
+
+.btn:hover, .btn:focus {
+    background: #1F7080;
+}

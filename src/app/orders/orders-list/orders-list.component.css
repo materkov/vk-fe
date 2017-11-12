@@ -1,0 +1,29 @@
+.orders-list-table {
+    width: 100%;
+    text-align: left;
+    border-spacing: 0;
+    font-weight: normal;
+}
+
+.orders-list-table th:nth-child(1) {
+    width: 30px;
+}
+
+.orders-list-table th:nth-child(2) {
+    width: 300px;
+}
+
+.orders-list-table td, .orders-list-table th {
+    padding: 5px;
+    font-size: 16px;
+}
+
+.orders-list-table thead {
+    border-bottom: 1px solid #aaaaaa;
+}
+
+
+.orders-list-table tbody tr:hover {
+    background: #dddddd;
+    border-color: #dddddd;
+}

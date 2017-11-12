@@ -1,0 +1,26 @@
+<table class="orders-list-table">
+    <thead>
+    <tr>
+        <th>#</th>
+        <th>Заказ</th>
+        <th>Цена</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let order of ordersList">
+        <td>
+            {{ order.id }}
+        </td>
+        <td>
+            <a [routerLink]="['/orders/', order.id]">{{ order.name }}</a>
+        </td>
+        <td>{{ order.price | currency:'RUB':'symbol':'.2-2' }}</td>
+    </tr>
+    <tr>
+        <td colspan="3">
+            <button class="btn btn-default" (click)="loadNextPage()" [disabled]="!cursor">Еще</button>
+        </td>
+    </tr>
+    </tbody>
+
+</table>

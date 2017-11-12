@@ -1,0 +1,25 @@
+.order-detail {
+    width: 100%;
+    overflow: hidden;
+    padding: 0;
+    margin: 0
+}
+.order-detail dt {
+    float: left;
+    width: 200px;
+    text-align: right;
+    padding: 0;
+    color: #999999;
+    margin: 0 10px 0 0;
+}
+.order-detail dd {
+    float: left;
+    width: 50%;
+    padding: 0;
+    margin: 0;
+}
+
+.exec-btn {
+    margin: 10px auto 10px auto;
+    display: block;
+}

@@ -1,0 +1,24 @@
+.container-header {
+    width: 820px;
+    margin: 10px auto 10px auto;
+    border: 0;
+    font-size: 22px;
+    border-bottom: 1px solid #eeeeee;
+    font-weight: bold;
+    padding-bottom: 10px;
+}
+
+.container-header a, .container-header a:hover {
+    color: #555459;
+    text-decoration: none;
+}
+
+.container-main {
+    width: 800px;
+    background: #eee;
+    border-radius: 5px;
+    box-shadow: 0 3px 0 0 rgba(0, 0, 0, 0.12);
+    padding: 10px;
+    margin: 10px auto 50px auto;
+}
+
