@@ -1,0 +1,16 @@
+<div *ngIf="user">
+    <h1>{{ authService.getName() }}</h1>
+    <dl class="user-detail">
+        <dt>ID</dt>
+        <dd>{{ user.id }}</dd>
+
+        <dt>Баланс</dt>
+        <dd>{{ user.balance | currency:'RUB':'symbol':'.2-2' }}</dd>
+
+        <dt>Могу размещать заказ</dt>
+        <dd>{{ user.can_create_order ? 'Да' : 'Нет' }}</dd>
+
+        <dt>Могу выполнить заказ</dt>
+        <dd>{{ user.can_execute_order ? 'Да' : 'Нет' }}</dd>
+    </dl>
+</div>

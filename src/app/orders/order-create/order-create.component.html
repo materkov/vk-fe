@@ -1,0 +1,28 @@
+<dl class="order-create">
+    <dt>Название:</dt>
+    <dd>
+        <input [(ngModel)]="name" class="name">
+    </dd>
+
+    <dt>Цена:</dt>
+    <dd>
+        <input [(ngModel)]="price">
+    </dd>
+
+    <dt>Описание:</dt>
+    <dd>
+        <textarea [(ngModel)]="description"></textarea>
+    </dd>
+</dl>
+
+<input type="button" class="btn exec-btn"
+       value="Создать заказ" (click)="create()" [disabled]="creating || orderId">
+
+<div class="info-msg success" *ngIf="orderId">
+    Заказ создан. <a [routerLink]="['/orders', orderId]">Перейти на страницу заказа >>></a>
+</div>
+<div class="info-msg fail" *ngIf="invalidName">Неверное название заказа</div>
+<div class="info-msg fail" *ngIf="invalidDescription">Неверное описание заказа</div>
+<div class="info-msg fail" *ngIf="invalidPrice">Неверная цена</div>
+<div class="info-msg fail" *ngIf="failAPI">Ошибка API. Кажется, что-то пошло не так</div>
+<div class="info-msg fail" *ngIf="failCantCreate">Вы не можете создавать заказы</div>

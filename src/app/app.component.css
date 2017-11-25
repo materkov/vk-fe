@@ -40,6 +40,11 @@
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
+    color: #777;
+}
+
+.container-header .right-logout {
+    color: #aaa !important;
 }
 
 .container-main {

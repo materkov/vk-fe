@@ -11,6 +11,9 @@ import {AuthComponent} from './auth/auth.component';
 import {AuthGuard} from "./auth/auth.guard";
 import {AuthService} from "./auth/auth.service";
 import {FormsModule} from "@angular/forms";
+import { UserComponent } from './user/user.component';
+import {UserService} from "./user/user.service";
+import { OrderCreateComponent } from './orders/order-create/order-create.component';
 
 @NgModule({
     declarations: [
@@ -18,6 +21,8 @@ import {FormsModule} from "@angular/forms";
         OrdersListComponent,
         OrdersDetailsComponent,
         AuthComponent,
+        UserComponent,
+        OrderCreateComponent,
     ],
     imports: [
         BrowserModule,
@@ -29,6 +34,7 @@ import {FormsModule} from "@angular/forms";
         OrderService,
         AuthGuard,
         AuthService,
+        UserService,
     ],
     bootstrap: [AppComponent],
 })

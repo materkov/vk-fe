@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {OrderService} from "../order.service";
 import {ActivatedRoute, ParamMap, Router} from "@angular/router";
 import {Order} from "../order";
+import {APIError} from "../../shared/error";
 
 @Component({
     selector: 'app-orders-details',
@@ -10,6 +11,11 @@ import {Order} from "../order";
 })
 export class OrdersDetailsComponent implements OnInit {
     private order : Order;
+    private executing: boolean;
+    private done: boolean;
+    private failAlreadyDone: boolean;
+    private failCantExecute: boolean;
+    private failGeneral: boolean;
 
     constructor(private orderService: OrderService, private route: ActivatedRoute) {
     }
@@ -20,7 +26,30 @@ export class OrdersDetailsComponent implements OnInit {
         });
     }
 
+    clearState() {
+        this.executing = false;
+        this.done = false;
+        this.failAlreadyDone = false;
+        this.failCantExecute = false;
+        this.failGeneral = false;
+    }
+
     execute() {
-        this.orderService.executeOrder(this.order.id);
+        this.clearState();
+        this.executing = true;
+
+        this.orderService.executeOrder(this.order.id).then(_ => {
+            this.clearState();
+            this.done = true;
+        }).catch((error: APIError) => {
+            this.clearState();
+            if (error.error == "order_already_executed") {
+                this.failAlreadyDone = true;
+            } else if (error.error == "user_cant_execute_order") {
+                this.failCantExecute = true;
+            } else {
+                this.failGeneral = true;
+            }
+        });
     }
 }

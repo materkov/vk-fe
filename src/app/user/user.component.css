@@ -1,0 +1,22 @@
+.user-detail {
+    width: 100%;
+    overflow: hidden;
+    padding: 0;
+    margin: 0
+}
+
+.user-detail dt {
+    float: left;
+    width: 300px;
+    text-align: right;
+    padding: 0;
+    color: #999999;
+    margin: 0 10px 0 0;
+}
+
+.user-detail dd {
+    float: left;
+    width: 50%;
+    padding: 0;
+    margin: 0;
+}

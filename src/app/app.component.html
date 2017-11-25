@@ -1,9 +1,9 @@
 <div class="container-header">
     <a routerLink="/">VK Orders</a>
     <div class="right-part" *ngIf="authService.isAuthenticated()">
-        <p class="right-name">
-            {{ authService.getUserTypeHuman() }}: {{ authService.getName() }}
-        </p>
+        <a class="right-name" [routerLink]="['me']">
+            {{ authService.getName() }}
+        </a>
         |
         <a class="right-logout" (click)="logout()">Выход</a>
     </div>

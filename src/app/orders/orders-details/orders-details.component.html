@@ -12,4 +12,10 @@
     <dd>{{order.description}}</dd>
 </dl>
 
-<input type="button" class="btn exec-btn" value="Выполнить заказ" (click)="execute()">
+<input *ngIf="order" type="button" class="btn exec-btn"
+       value="Выполнить заказ" (click)="execute()" [disabled]="executing || done">
+
+<div class="info-msg success" *ngIf="done">Вы выполнили этот заказ!</div>
+<div class="info-msg fail" *ngIf="failAlreadyDone">Этот заказ уже выполнили. Пожалуйста, выберите другой</div>
+<div class="info-msg fail" *ngIf="failCantExecute">Вы не можете выполнять заказы.</div>
+<div class="info-msg fail" *ngIf="failGeneral">Кажется, что-то пошло не так.</div>

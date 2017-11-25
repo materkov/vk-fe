@@ -9,30 +9,32 @@ interface TokenResponse {
 @Injectable()
 export class AuthService {
     private token: string = "";
-    private userId: number;
+    private canAddOrder: boolean = false;
+    private canExecuteOrder: boolean = false;
+    private userId: string;
     private userName: string;
-    private userType: string;
 
     constructor(private http: HttpClient) {
     }
 
-    decodeToken() {
-        let token = JSON.parse(base64url.decode(this.token.split('.')[0]));
-        this.userName = token.username;
-        this.userId = token.id;
-        this.userType = token.type;
+    decodeToken(token: string) {
+        this.token = token;
+        let tokenParsed = JSON.parse(base64url.decode(token.split('.')[0]));
+        this.canAddOrder = tokenParsed['can_add_order'];
+        this.canExecuteOrder = tokenParsed['can_execute_order'];
+        this.userId = tokenParsed['id'];
+        this.userName = tokenParsed['username'];
     }
 
     tryAuthorize(username: string, password: string): Promise<boolean> {
-        let url = 'http://localhost:8000/auth/contractor';
+        let url = 'http://localhost:8000/auth';
         let body = {
             'username': username,
             'password': password,
         };
         return this.http.post<TokenResponse>(url, body).toPromise().then(resp => {
             localStorage.setItem("token", resp.token);
-            this.token = resp.token;
-            this.decodeToken();
+            this.decodeToken(resp.token);
             return true;
         }).catch(resp => {
             if (resp.status == 403) {
@@ -41,31 +43,13 @@ export class AuthService {
                 return null;
             }
         });
-        /*
-
-        let headers = new Headers({
-            'Content-Type': 'application/json',
-            'Authorization': 'Bearer ' + apiKey
-        });
-
-        return this.http.post(url, '', {headers: headers}).toPromise().catch(response => {
-            if (response.status == 400) {
-                this.projectId = projectId;
-                this.apiKey = apiKey;
-                return true;
-            }
-            else {
-                return false;
-            }
-        });*/
     }
 
     isAuthenticated(): boolean {
         if (this.token == "") {
             let storageToken = localStorage.getItem("token");
             if (storageToken) {
-                this.token = storageToken;
-                this.decodeToken();
+                this.decodeToken(storageToken);
             }
         }
         return this.token != "";
@@ -79,21 +63,13 @@ export class AuthService {
         return this.userName;
     }
 
-    getUserTypeHuman(): string {
-        if (this.userType == "contractor") {
-            return "Исполнитель"
-        } else if (this.userType == "customer") {
-            return "Заказчик";
-        } else {
-            return "";
-        }
+    getId(): string {
+        return this.userId;
     }
 
     logout() {
         this.token = "";
         this.userName = "";
-        this.userId = 0;
-        this.userType = "";
         localStorage.removeItem("token");
     }
 }

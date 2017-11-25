@@ -1,22 +1,36 @@
-.order-detail {
+.order-create {
     width: 100%;
     overflow: hidden;
     padding: 0;
     margin: 0
 }
-.order-detail dt {
+.order-create dt {
     float: left;
     width: 200px;
     text-align: right;
     padding: 0;
     color: #999999;
-    margin: 0 10px 0 0;
+    margin: 0 10px 10px 0;
 }
-.order-detail dd {
+.order-create dd {
     float: left;
     width: 50%;
     padding: 0;
-    margin: 0;
+    margin: 0 0 10px 0;
+}
+
+.order-create .name {
+    width: 400px;
+}
+
+.order-create .price {
+    width: 150px;
+}
+
+.order-create textarea {
+    width: 400px;
+    height: 100px;
+    resize: none;
 }
 
 .exec-btn {
@@ -32,6 +46,11 @@
     color: #fff;
     border-radius: 4px;
     padding: 5px 10px;
+    margin: 5px 0;
+}
+
+.info-msg a {
+    color: #fff;
 }
 
 .success {

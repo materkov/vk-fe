@@ -1,3 +1,5 @@
+<a class="add-order" [routerLink]="['/orders/new']">+ Добавить</a>
+
 <table class="orders-list-table">
     <thead>
     <tr>
@@ -18,7 +20,7 @@
     </tr>
     <tr>
         <td colspan="3">
-            <button class="btn btn-default" (click)="loadNextPage()" [disabled]="!cursor">Еще</button>
+            <button *ngIf="ordersList.length" class="btn btn-default" (click)="loadNextPage()" [disabled]="!cursor">Еще</button>
         </td>
     </tr>
     </tbody>

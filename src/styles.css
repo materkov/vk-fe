@@ -29,6 +29,11 @@ a:focus, a:hover {
     background: #1F7080;
 }
 
+.btn:disabled {
+    background: #133642;
+    cursor: default;
+}
+
 .clearfix:before, .clearfix:after {
     content: " ";
     display: table;
