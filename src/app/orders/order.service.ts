@@ -34,7 +34,7 @@ export class OrderService {
 
     executeOrder(id: number) {
         return new Promise((resolve, reject) => {
-            let url = "http://localhost:8000/orders/" + id + "/exec?XDEBUG_SESSION_START=1";
+            let url = "http://localhost:8000/orders/" + id + "/exec";
             let headers = new HttpHeaders().set("Authorization", "Bearer " + this.authService.getToken());
 
             this.httpClient.post(url, null, {headers: headers})
