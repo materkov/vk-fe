@@ -1,0 +1,27 @@
+<a [routerLink]="['/auth']" class="auth">Вход в аккаунт >>></a>
+<div class="clearfix"></div>
+
+<input name="options" ng-control="options" type="radio" id="type1"
+       [value]="1" [(ngModel)]="authType" [checked]="authType == 1">
+<label for="type1">Зарегистрироваться как исполнитель</label>
+<br>
+
+<input name="options" ng-control="options" type="radio" id="type2"
+       [value]="2" [(ngModel)]="authType" [checked]="authType == 2">
+<label for="type2">Зарегистрироваться как заказчик</label>
+<br>
+
+<p>
+    <input type="text" placeholder="Username" [(ngModel)]="username">
+    <input type="password" placeholder="Password" [(ngModel)]="password">
+    <input type="button" value="Зарегистрироваться" (click)="register()" [disabled]="processing">
+</p>
+
+
+<div class="error" *ngIf="invalidUsername">Имя пользователя некорректно</div>
+<div class="error" *ngIf="invalidPassword">Пароль некорректный</div>
+<div class="error" *ngIf="alreadyRegistered">Этот юзернейм уже занят. Выберите другой</div>
+<div class="error" *ngIf="serverError">Сервер недоступен. Попробуйте повторить запрос позднее</div>
+
+<br>
+

@@ -1,3 +1,6 @@
+<a [routerLink]="['/register']" class="reg">Регистрация нового аккаунта >>></a>
+<div class="clearfix"></div>
+
 <p>
     <input type="text" placeholder="Username" [(ngModel)]="username">
     <input type="password" placeholder="Password" [(ngModel)]="password">
@@ -6,3 +9,4 @@
 
 <div class="auth-error" *ngIf="invalidPassword">Неверное имя пользователя или пароль</div>
 <div class="auth-error" *ngIf="serverError">Сервер недоступен. Попробуйте повторить запрос позднее</div>
+

@@ -7,6 +7,7 @@ import {AuthComponent} from "./auth/auth.component";
 import {AuthGuard} from "./auth/auth.guard";
 import {UserComponent} from "./user/user.component";
 import {OrderCreateComponent} from "./orders/order-create/order-create.component";
+import {RegisterComponent} from "./register/register.component";
 
 const routes: Routes = [
     {path: '', redirectTo: '/orders', pathMatch: 'full'},
@@ -19,6 +20,7 @@ const routes: Routes = [
     ]},
 
     {path: 'auth', component: AuthComponent},
+    {path: 'register', component: RegisterComponent},
 ];
 
 @NgModule({

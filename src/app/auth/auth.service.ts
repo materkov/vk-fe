@@ -1,6 +1,7 @@
 import {Injectable} from '@angular/core';
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpErrorResponse} from "@angular/common/http";
 import base64url from "base64url";
+import {APIError} from "../shared/error";
 
 interface TokenResponse {
     token: string;
@@ -71,5 +72,22 @@ export class AuthService {
         this.token = "";
         this.userName = "";
         localStorage.removeItem("token");
+    }
+
+    register(username: string, password: string, canCreateOrder: boolean, canExecuteOrder: boolean): Promise<null> {
+        return new Promise((resolve, reject) => {
+            let url = 'http://localhost:8000/register';
+            let body = {
+                'username': username,
+                'password': password,
+                'can_create_order': canCreateOrder,
+                'can_execute_order': canExecuteOrder,
+            };
+            return this.http.post(url, body).toPromise().then(resp => {
+                resolve();
+            }).catch((resp: HttpErrorResponse)=> {
+                reject(resp.error as APIError);
+            });
+        });
     }
 }
