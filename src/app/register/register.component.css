@@ -1,11 +1,13 @@
-.auth-error{
+.error{
     background: #a71818;
     color: #ffffff;
     padding: 5px 10px;
+    margin: 5px 0px;
     border-radius: 5px;
 }
 
-.reg {
+.auth {
+    text-align: right;
     display: block;
     float: right;
 }

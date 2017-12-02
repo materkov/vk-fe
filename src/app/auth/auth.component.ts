@@ -32,4 +32,12 @@ export class AuthComponent implements OnInit {
             }
         })
     }
+
+    registerAsCreate() {
+
+    }
+
+    registerAsExecute() {
+
+    }
 }

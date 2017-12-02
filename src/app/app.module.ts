@@ -14,6 +14,7 @@ import {FormsModule} from "@angular/forms";
 import { UserComponent } from './user/user.component';
 import {UserService} from "./user/user.service";
 import { OrderCreateComponent } from './orders/order-create/order-create.component';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
     declarations: [
@@ -23,6 +24,7 @@ import { OrderCreateComponent } from './orders/order-create/order-create.compone
         AuthComponent,
         UserComponent,
         OrderCreateComponent,
+        RegisterComponent,
     ],
     imports: [
         BrowserModule,
