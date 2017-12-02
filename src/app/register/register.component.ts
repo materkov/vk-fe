@@ -9,14 +9,14 @@ import {Router} from "@angular/router";
     styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-    private authType: number = 1;
-    private username: string = "";
-    private password: string = "";
-    private invalidUsername: boolean = false;
-    private invalidPassword: boolean = false;
-    private alreadyRegistered: boolean = false;
-    private serverError: boolean = false;
-    private processing: boolean = false;
+    public authType: number = 1;
+    public username: string = "";
+    public password: string = "";
+    public invalidUsername: boolean = false;
+    public invalidPassword: boolean = false;
+    public alreadyRegistered: boolean = false;
+    public serverError: boolean = false;
+    public processing: boolean = false;
 
     constructor(private authService: AuthService, private router: Router) {
     }
