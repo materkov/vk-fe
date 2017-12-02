@@ -3,14 +3,17 @@ import {HttpClient, HttpErrorResponse, HttpHeaders} from "@angular/common/http";
 import {Order} from "./order";
 import {AuthService} from "../auth/auth.service";
 import {APIError} from "../shared/error";
+import {environment} from "../../environments/environment";
 
 @Injectable()
 export class OrderService {
+    private apiHost = environment.apiHost;
+
     constructor(private httpClient: HttpClient, private authService: AuthService) {
     }
 
     getOrdersList(after: string): Promise<[Order[], string]> {
-        let url = "http://localhost:8000/orders?limit=20";
+        let url = this.apiHost + "/orders?limit=20";
         if (after) {
             url += "&after=" + after;
         }
@@ -23,7 +26,7 @@ export class OrderService {
     }
 
     getOrder(id: string): Promise<Order> {
-        let url = "http://localhost:8000/orders/" + id;
+        let url = this.apiHost + "/orders/" + id;
 
         return this.httpClient.get(url)
             .toPromise()
@@ -34,7 +37,7 @@ export class OrderService {
 
     executeOrder(id: number) {
         return new Promise((resolve, reject) => {
-            let url = "http://localhost:8000/orders/" + id + "/exec";
+            let url = this.apiHost + "/orders/" + id + "/exec";
             let headers = new HttpHeaders().set("Authorization", "Bearer " + this.authService.getToken());
 
             this.httpClient.post(url, null, {headers: headers})
@@ -48,7 +51,7 @@ export class OrderService {
 
     createOrder(name: string, description: string, price: number): Promise<number> {
         return new Promise((resolve, reject) => {
-            let url = "http://localhost:8000/orders";
+            let url = this.apiHost + "/orders";
             let headers = new HttpHeaders().set("Authorization", "Bearer " + this.authService.getToken());
             let body = {
                 name: name,

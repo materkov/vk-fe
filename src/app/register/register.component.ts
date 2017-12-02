@@ -16,7 +16,7 @@ export class RegisterComponent implements OnInit {
     public invalidPassword: boolean = false;
     public alreadyRegistered: boolean = false;
     public serverError: boolean = false;
-    public processing: boolean = false;
+    public   processing: boolean = false;
 
     constructor(private authService: AuthService, private router: Router) {
     }

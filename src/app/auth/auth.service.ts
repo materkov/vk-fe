@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient, HttpErrorResponse} from "@angular/common/http";
 import base64url from "base64url";
 import {APIError} from "../shared/error";
+import {environment} from "../../environments/environment";
 
 interface TokenResponse {
     token: string;
@@ -9,6 +10,7 @@ interface TokenResponse {
 
 @Injectable()
 export class AuthService {
+    private apiHost = environment.apiHost;
     private token: string = "";
     private canAddOrder: boolean = false;
     private canExecuteOrder: boolean = false;
@@ -28,7 +30,7 @@ export class AuthService {
     }
 
     tryAuthorize(username: string, password: string): Promise<boolean> {
-        let url = 'http://localhost:8000/auth';
+        let url = this.apiHost + '/auth';
         let body = {
             'username': username,
             'password': password,
@@ -76,7 +78,7 @@ export class AuthService {
 
     register(username: string, password: string, canCreateOrder: boolean, canExecuteOrder: boolean): Promise<null> {
         return new Promise((resolve, reject) => {
-            let url = 'http://localhost:8000/register';
+            let url = this.apiHost + '/register';
             let body = {
                 'username': username,
                 'password': password,
