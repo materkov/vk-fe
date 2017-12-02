@@ -10,12 +10,12 @@ import {APIError} from "../../shared/error";
     styleUrls: ['./orders-details.component.css']
 })
 export class OrdersDetailsComponent implements OnInit {
-    private order : Order;
-    private executing: boolean;
-    private done: boolean;
-    private failAlreadyDone: boolean;
-    private failCantExecute: boolean;
-    private failGeneral: boolean;
+    public order : Order;
+    public executing: boolean;
+    public done: boolean;
+    public failAlreadyDone: boolean;
+    public failCantExecute: boolean;
+    public failGeneral: boolean;
 
     constructor(private orderService: OrderService, private route: ActivatedRoute) {
     }

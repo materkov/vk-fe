@@ -8,17 +8,17 @@ import {APIError} from "../../shared/error";
     styleUrls: ['./order-create.component.css']
 })
 export class OrderCreateComponent implements OnInit {
-    private name: string = "";
-    private price: string = "";
-    private description: string = "";
-    private orderId: number;
+    public name: string = "";
+    public price: string = "";
+    public description: string = "";
+    public orderId: number;
 
-    private invalidName: boolean;
-    private invalidPrice: boolean;
-    private invalidDescription: boolean;
-    private creating: boolean;
-    private failAPI: boolean;
-    private failCantCreate: boolean;
+    public invalidName: boolean;
+    public invalidPrice: boolean;
+    public invalidDescription: boolean;
+    public creating: boolean;
+    public failAPI: boolean;
+    public failCantCreate: boolean;
 
     private priceRegexp: RegExp;
 

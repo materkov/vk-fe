@@ -9,7 +9,7 @@ import {Router} from "@angular/router";
 })
 export class AppComponent {
     title = 'app';
-    constructor(private authService: AuthService, private router: Router) {
+    constructor(public authService: AuthService, private router: Router) {
     }
 
     logout() {

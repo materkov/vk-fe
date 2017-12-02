@@ -9,7 +9,7 @@ import {User} from "./user";
     styleUrls: ['./user.component.css']
 })
 export class UserComponent implements OnInit {
-    private user: User;
+    public user: User;
 
     constructor(private authService: AuthService, private userService: UserService) {
     }
