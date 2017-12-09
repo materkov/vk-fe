@@ -49,7 +49,7 @@ export class OrderService {
         })
     }
 
-    createOrder(name: string, description: string, price: number): Promise<number> {
+    createOrder(name: string, description: string, price: string): Promise<number> {
         return new Promise((resolve, reject) => {
             let url = this.apiHost + "/orders";
             let headers = new HttpHeaders().set("Authorization", "Bearer " + this.authService.getToken());

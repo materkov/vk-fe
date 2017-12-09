@@ -65,7 +65,7 @@ export class OrderCreateComponent implements OnInit {
         }
 
         this.creating = true;
-        this.orderService.createOrder(this.name, this.description, Number(this.price)).then(
+        this.orderService.createOrder(this.name, this.description, this.price).then(
             orderId => {
                 this.clearState();
                 this.orderId = orderId;
